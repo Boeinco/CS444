@@ -46,14 +46,14 @@ void consumerthread()
       {
 		  if (!checkproductempty(i))
 		  {
-			  printf("Consumer from index %d is %d\n", i, product[i].print);
-			  printf("Consumer at index %d for %d\n", i, product[i].wait);
+			  printf("Consumer random val from index %d is %d\n", i, product[i].print);
+			  printf("Consumer sleeping at index %d for %d\n", i, product[i].wait);
 			  t = product[i].wait;
 			  product[i].print = -1;
 			  product[i].wait = -1;
 		  }
 		  pthread_mutex_unlock(&lock);
-		  sleep(t);
+		  sleep(t); //you are feeling sleepy now
 	  }
 	  i++;
    }
@@ -63,8 +63,8 @@ int main()
 {
    srand(time(NULL));
     int i;
-    int producer_wait;
-    for (i = 0; i < 32; ++i){
+    int prodwait;
+    for (i = 0; i < 32; ++i){//just initializating all the items
         product[i].print=-1;
         product[i].wait=-1;
     }
@@ -81,19 +81,18 @@ int main()
         if (i >= 32 ) {
             i = 0;
         }
-        
-        producer_wait = 0;
+		prodwait = 0;
         
         if (!checkmutex()){
             if (checkproductempty(i)) {
-                product[i].print = (rand() % (11));
-                product[i].wait = (rand() % (9 + 1 -2)) + 2;
+                product[i].print = (rand() % (11));//between 1-10
+                product[i].wait = (rand() % (9 + 1 -2)) + 2;//waiting for somewhere between 2-9 second 
 		printf("Producer Inserting Value %d and Wait Time %d at Index: %d\n", product[i].print, product[i].wait, i);
-                producer_wait = (rand() % (7 + 1 - 3)) + 3;
-		printf("Producer is now sleeping for %d seconds\n", producer_wait);
+                prodwait = (rand() % (7 + 1 - 3)) + 3;//waiting for somewhere between 3-7 seconds
+		printf("Producer is now sleeping for %d seconds\n", prodwait);
             }
             pthread_mutex_unlock(&lock);
-            sleep(producer_wait);
+            sleep(prodwait);//You are feeling sleepy now.
         } 
         i++;
     }
