@@ -1,2 +1,2 @@
 concurrency1: concurrency1.c
-	g++ -pthread -o concurrency1 concurrency1.c -g
+	gcc -pthread -o concurrency1 concurrency1.c -g

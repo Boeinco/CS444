@@ -6,8 +6,6 @@
 #include <math.h>
 #include "mt19937ar.c"
 #include <time.h>
-#include <iostream>
-using namespace std;
 
 pthread_mutex_t lock;
 
@@ -63,6 +61,7 @@ void consumerthread()
 
 int main()
 {
+   srand(time(NULL));
     int i;
     int producer_wait;
     for (i = 0; i < 32; ++i){
@@ -70,11 +69,6 @@ int main()
         product[i].wait=-1;
     }
 
-    //Prints all the data in the array.
-    //for (i = 0; i < 32; ++i){
-    //    printf("Print: %d\n", product[i].print);
-    //    printf("Wait: %d\n", product[i].wait);
-    //}
     pthread_t consumer_thread;
     if(pthread_create(&consumer_thread, NULL, (void *)consumerthread, (void *)NULL)) {
 
@@ -91,16 +85,14 @@ int main()
         producer_wait = 0;
         
         if (!checkmutex()){
-            //printf("Mutex Aquired by Producer\n");
             if (checkproductempty(i)) {
-                product[i].print = rdrand_func(3);
-                product[i].wait = rdrand_func(1);
-                printf("Producer Inserting Value %d and Wait Time %d at Index: %d\n", product[i].print, product[i].wait, i);
-                producer_wait = rdrand_func(2);
-                printf("Producer is now sleeping for %d seconds\n", producer_wait);
+                product[i].print = (rand() % (11));
+                product[i].wait = (rand() % (9 + 1 -2)) + 2;
+		printf("Producer Inserting Value %d and Wait Time %d at Index: %d\n", product[i].print, product[i].wait, i);
+                producer_wait = (rand() % (7 + 1 - 3)) + 3;
+		printf("Producer is now sleeping for %d seconds\n", producer_wait);
             }
             pthread_mutex_unlock(&lock);
-            //printf("Mutex released by Producer\n");
             sleep(producer_wait);
         } 
         i++;
