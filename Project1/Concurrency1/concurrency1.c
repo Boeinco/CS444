@@ -6,6 +6,7 @@
 #include <math.h>
 #include "mt19937ar.c"
 #include <time.h>
+#include <stdlib.h>
 
 pthread_mutex_t lock;
 
@@ -59,10 +60,16 @@ void consumerthread()
    }
 }
 
-int main()
+int main(int argc, char *argv[])
 {
-   srand(time(NULL));
-    int i;
+	if (argc == 1)
+	{
+		printf("No argument given, exiting now.\n");
+		return 0;
+	}
+	printf("Argv is : %d\n", atoi(argv[1]));
+    srand(time(NULL));
+    int i, count;
     int prodwait;
     for (i = 0; i < 32; ++i){//just initializating all the items
         product[i].print=-1;
@@ -95,6 +102,11 @@ int main()
             sleep(prodwait);//You are feeling sleepy now.
         } 
         i++;
+		printf("i is: %d\n", i);
+		if (i == atoi(argv[1]))
+		{
+			return 0;
+		}
     }
     if(pthread_join(consumer_thread, NULL)) {
         fprintf(stderr, "Error joining thread\n");
