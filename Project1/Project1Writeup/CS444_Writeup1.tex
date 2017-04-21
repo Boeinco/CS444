@@ -171,11 +171,48 @@ My approach for the use of threads came from guidelines to the canonical Produce
 To ensure that the buffer was properly being added/removed to and to ensure that both threads were properly locking and unlocking, I added print statements in important functions such as when the global mutex was locked and unlocked in order to know whether these calls were actually being made. It is easy to verify that the threads are switching back and forth because both threads have different print statements that are only accessed within their specific thread is running. It is also easy to realize that the buffer is only sequentially being accessed by the two different threads in accordance with the mutex locking and unlocking because otherwise both threads would be accessing the same resource and either a memory read/write issue would occur or both threads would be depending on each other for an inordinate amount of time, resulting in \emph{deadlock}. Obviously, my use of the pthread condition functionality allowed both threads to wait until resources were available, thus preventing deadlock. Finally, to ensure that the entire integrated software worked properly, I used a makefile to generate an executable of the code that accepts 1 argument that corresponds to the number of times a loop that creates the threads shall occur. To ensure the executable achieved what I wanted it to, I ran the software with command line arguments of 1, 2, 3, 4, and 5. The corresponding output for these arguments properly demonstrated that the different threads were called 1, 2, 3, 4, and 5 times, respectively, which is correct behavior.
 
 \subsection{What I learned}
-I learned more about POSIX thread functions, such as initializing them, the act of "joining" them, and locking resources down using a mutex to prevent threads from accessing the same data simultaneously. I also learned more about implementing in-line ASM into the C programming language, a skill that could pose useful for software projects that require maximized efficiency in the context of low-level programming. I found the in-line ASM to be complex and confusing, mainly because of a) the odd syntax and b) how it required my brain to be thinking in both ASM and C at the same time.
+Austin reviewed knowledge of concurrency and with the synchro2 problem discussed in the recitation, is starting to get into the parallel mindset. Using mutexes again helped this process to remember to not allow multiple threads to access the same data.  The assignment was a good warmup for any future problems in parallel.
+
 
 \section{Version control log}
 \begin{versionhistory}
-\vhEntry{1}{4.18.2017}{Austin}{latex template file}
+\subsection{git logs}
+597d814 was Austin, 43 minutes ago, message: Tex edit
+
+304e7e8 was IStallcup, 4 hours ago, message: small changes to concurrency
+
+5336067 was IStallcup, 5 hours ago, message: Merge branch 'master' of https://github.com/Boeinco/CS444
+6
+fa3edf was IStallcup, 5 hours ago, message: added qemu flag explanation
+
+5ffd876 was Isaac Stallcup, 5 hours ago, message: Create .gitignore
+
+66d601f was Austin, 12 hours ago, message: Writeup work
+
+53de57c was Austin, 12 hours ago, message: fixed command arg
+c
+fb1942 was Austin, 32 hours ago, message: writeup updated
+
+401f05e was Austin, 32 hours ago, message: writeup updated
+
+8425628 was IStallcup, 33 hours ago, message: Added some more stuff
+
+cf27ae5 was IStallcup, 33 hours ago, message: added some writeup formatting
+
+6e073c6 was Austin, 34 hours ago, message: Template tex file done
+
+dae7e2e was Austin, 35 hours ago, message: concurrency mostly done
+
+4d7f1cc was Austin, 2 days ago, message: temp files
+
+3e7be70 was Austin, 2 days ago, message: some files in
+
+599f66e was Austin, 2 days ago, message: started concurrency
+c
+6a4f0c was Austin, 2 days ago, message: Testing directories
+
+8e404a9 was Austin Nguyen, 3 days ago, message: first commit
+
 \end{versionhistory}
 
 \section{Work log}
@@ -184,6 +221,9 @@ Austin created git project and started working on concurrency.  Used latex templ
 \subsection{April 19-17}
 Austin started working on the new project requirement of the command line argument after creating the main project frame.  After creating mutexes and having them sleep for the specified random amount of time, work was done on translating it to the producer/consumer problem.
 \subsection{April 20-17}
+Austin finished up the producer/consumer problem and added the qemu instructions. Isaac did research on the flags during the linux commands and also helped format the latex file.  Some latex work was done.
+\subsection{April 21-17}
+Austin did the section of version control and other parts of the document.
 
 %\bibliographystyle{plain}
 %\bibliography{CS444_Writeup1}

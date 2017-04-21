@@ -1,58 +1,6 @@
-\begin {longtable}{@{}ll>{\hsize =\vhAuthorColWidth }X>{\hsize =\vhChangeColWidth }X@{}}
+\begin {longtable}{ll>{\hsize =.5\hsize }X>{\hsize =1.5\hsize }X}
 \textbf {\vhversionname }
  & \textbf {\vhdatename }
  & \textbf {\vhauthorname }
  & \textbf {\vhchangename }\\[1ex]
-1
- & 4.7.2017
- & \listset {Alex}
- & Add latex template file\\
-2
- & 4.9.2017
- & \listset {Alex}
- & Created structs to hold the data, inspect how to do the ASM randomization\\
-3
- & 4.9.2017
- & \listset {Alex}
- & Add fake random functions to stand in place until ASM is understood\\
-4
- & 4.9.2017
- & \listset {Alex}
- & add pseudocode for producer, consumer void functionswhich are passed to pthreads\\
-5
- & 4.10.2017
- & \listset {Alex}
- & First pass at producer function done with mutexes, conditions, etc.\\
-6
- & 4.10.2017
- & \listset {Alex}
- & Everything done except ASM randomization, currently prog loops forever, only terminating when hit with a signal\\
-7
- & 4.17.2017
- & \listset {Alex}
- & change name of proj1 folder to project1\\
-8
- & 4.17.2017
- & \listset {Alex}
- & Add part in latex about Qemu command line, flags explained\\
-9
- & 4.17.2017
- & \listset {Alex}
- & Answer first two questions of the concurrency writeup\\
-10
- & 4.18.2017
- & \listset {Alex}
- & Add loop counter accessible from command line\\
-11
- & 4.18.2017
- & \listset {Alex}
- & Changed all typedefs of structs to just structs in accordance with Linus's coding style\\
-12
- & 4.18.2017
- & \listset {Alex}
- & Add what I learned and how I ensured solution was correct sections to writeup\\
-13
- & 4.18.2017
- & \listset {Alex}
- & Begin work on version control table\\
 \end {longtable}
