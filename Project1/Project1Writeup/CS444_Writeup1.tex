@@ -101,7 +101,7 @@
 \begin{lstlisting}
 1.	Open two terminal windows. In terminal #1, do steps 2-12. In terminal #2 do steps 2-3. In terminal #1 we will build our project and use gdb to control the emulator in the debug mode. In terminal #2, we will boot our kernels on the VM.
 2.	Log on to os-class : pengc@os-class.oregonstate.edu(Please use your own user name )
-3.	Call cd /scratch/spring2017/10-01 . If you don’t have this folder(10-01), call mkdir 10-01 to create under /scratch/spring2017/ directory and cd 10-01 to change the directory
+3.	Call cd scratch/spring2017/10-01 . If you don't have this folder(10-01), call mkdir 10-01 to create under /scratch/spring2017/ directory and cd 10-01 to change the directory
 4.	Call git clone git://git.yoctoproject.org/linux-yocto-3.14 to download the project from GitHub and you will get linux-yocto-3.14.
 5.	To switch to the correct tag, call cd linux-yocto-3.14, and then git checkout v3.14.26 
 6.	Before we build our kernel or run qemu, we should configure the environment, so run source /scratch/opt/environment-setup-i586-poky-linux.csh 
@@ -147,17 +147,18 @@ qemu-system-i386 -gdb tcp::???? -S -nographic -kernel bzImage-qemux86.bin
 
 The following list describes each flag:
 \begin{itemize}
-\item \emph{-gdb} tells the system to wait to connect to gdb on the device tcp::[group number], this device being passed in as an argument.
-\item \emph{-S} is a flag that tells the system to wait for a gdb connection.
-\item \emph{-nographic} is a visualization option that turns off graphical output.
-\item \emph{-kernel} is a flag that saves time and resources by granting the system a Linux kernel image, rather than requiring a full boot.
-\item \emph{-drive} handles disk options and takes 1 to n number of arguments to specify these options, in the case of this command the file we passed to this flag is parsed according to the virtio interface.
-\item \emph{-enable-kvm} is a flag that enables KVM virtualization support without any setting turned off.
-\item \emph{-net} is a flag that sets network options.
-\item \emph{-usb} is a flag that turns on the USB driver.
-\item \emph{-localtime} is a flag that tells the system to use local time.
-\item \emph{--no-reboot} tells the system to exit, not reboot, when rebooting is an option.
-\item \emph{--append} is a flag that represents the command line necessary to interact with the kernel.
+\item \emph{-gdb} instructs qemu to wait for input from the subsequent flag.
+\item \emph{tcp::5628} gives qemu the device to listen on for gdb input.
+\item \emph{-S} tells qemu to not start the CPU at startup.
+\item \emph{-nographic} disables graphical output so qemu appears as a command line application only.
+\item \emph{-kernel} followed by a file specifies the kernel to be used, in this case the bzImage we created.
+\item \emph{-drive} defines a new drive; the following arguemnts specify the disk image file (file=core-image-lsb-sdk-qemux86.ext3) and the interface option (if=virtio).
+\item \emph{-enable-kvm} enables KVM virtualization, a very complicated function that assists in emulating hardware.
+\item \emph{-net} interfaces with network options; assumedly as it is followed by "none" the VM does not have networking support. 
+\item \emph{-usb} enables the USB driver.
+\item \emph{-localtime} enables the machine to start at the current local time.
+\item \emph{--no-reboot} configures the system to shutoff instead of reboot.
+\item \emph{--append} tells qemu to use the following argument ("root=dev/vdarw console=tty50 debug") as the kernel command line.
 \end{itemize}
 
 \section{Concurrency}

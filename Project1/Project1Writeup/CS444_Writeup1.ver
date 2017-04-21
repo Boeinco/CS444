@@ -1,4 +1,4 @@
-\begin {longtable}{ll>{\hsize =.5\hsize }X>{\hsize =1.5\hsize }X}
+\begin {longtable}{@{}ll>{\hsize =\vhAuthorColWidth }X>{\hsize =\vhChangeColWidth }X@{}}
 \textbf {\vhversionname }
  & \textbf {\vhdatename }
  & \textbf {\vhauthorname }
