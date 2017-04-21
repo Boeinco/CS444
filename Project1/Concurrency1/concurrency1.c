@@ -1,4 +1,5 @@
-/* Hello this is Austin working on concurrency for CS444 */
+/* Hello this is Austin working on concurrency for CS444 
+also hello this is Isaac working on concurrency for CS444 */
 
 #include <pthread.h>
 #include <stdio.h>
@@ -71,6 +72,7 @@ int main(int argc, char *argv[])
     srand(time(NULL));
     int i, count;
     int prodwait;
+
     for (i = 0; i < 32; ++i){//just initializating all the items
         product[i].print=-1;
         product[i].wait=-1;
