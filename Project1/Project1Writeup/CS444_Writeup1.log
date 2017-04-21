@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=latex 2016.6.14)  21 APR 2017 12:26
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=latex 2016.6.14)  21 APR 2017 12:33
 entering extended mode
  %&-line parsing enabled.
 **CS444_Writeup1
@@ -508,164 +508,50 @@ File: umsb.fd 2002/01/19 v2.2g AMS font definitions
 \openout6 = `CS444_Writeup1.toc'.
 
  [1]
-Overfull \hbox (1018.39476pt too wide) in paragraph at lines 105--106
+Overfull \hbox (910.39368pt too wide) in paragraph at lines 123--124
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][] 
+[][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (112.38554pt too wide) in paragraph at lines 106--107
+Overfull \hbox (130.38574pt too wide) in paragraph at lines 130--131
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+ []
+
+
+Overfull \hbox (466.38916pt too wide) in paragraph at lines 130--131
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-] 
+][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (652.39104pt too wide) in paragraph at lines 107--108
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (388.38835pt too wide) in paragraph at lines 108--109
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (130.38573pt too wide) in paragraph at lines 109--110
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
-
- []
-
-
-Overfull \hbox (460.38908pt too wide) in paragraph at lines 110--111
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (10.3845pt too wide) in paragraph at lines 112--113
-[][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (76.38518pt too wide) in paragraph at lines 114--115
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (394.38841pt too wide) in paragraph at lines 115--116
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (16.38457pt too wide) in paragraph at lines 116--117
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (628.3908pt too wide) in paragraph at lines 119--120
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (82.38524pt too wide) in paragraph at lines 120--121
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (142.38585pt too wide) in paragraph at lines 121--122
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][] 
- []
-
-
-Overfull \hbox (2002.40477pt too wide) in paragraph at lines 122--123
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][] 
- []
-
-
-Overfull \hbox (298.38744pt too wide) in paragraph at lines 123--124
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (82.38524pt too wide) in paragraph at lines 124--125
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-] 
- []
-
-
-Overfull \hbox (406.38853pt too wide) in paragraph at lines 126--127
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (532.38982pt too wide) in paragraph at lines 128--129
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (202.38646pt too wide) in paragraph at lines 129--130
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][]
- []
-
-
-Overfull \hbox (472.38922pt too wide) in paragraph at lines 129--130
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (712.39165pt too wide) in paragraph at lines 130--131
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (4.38446pt too wide) in paragraph at lines 137--138
+Overfull \hbox (4.38446pt too wide) in paragraph at lines 141--142
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 151.
+[2]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 155.
 
-(/usr/share/texmf/tex/latex/base/omscmr.fd
+ (/usr/share/texmf/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 151.
- [2] [3]
-Overfull \hbox (26.57538pt too wide) in paragraph at lines 192--195
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 155.
+ [3]
+Overfull \hbox (26.57538pt too wide) in paragraph at lines 195--198
 []\OT1/cmr/m/n/10 5336067 was IStall-cup, 5 hours ago, mes-sage: Merge branch '
 mas-ter' of https://github.com/Boeinco/CS444
  []
 
-\vh@hstfile=\write7
-(./CS444_Writeup1.ver) (./CS444_Writeup1.ver) (./CS444_Writeup1.ver) [4
-\openout3 = `CS444_Writeup1.ver'.
-
-\openout7 = `CS444_Writeup1.hst'.
-
-]
-[5] (./CS444_Writeup1.aux) ) 
+[4] [5] (./CS444_Writeup1.aux) ) 
 Here is how much of TeX's memory you used:
- 8325 strings out of 256215
- 107228 string characters out of 1917023
- 240028 words of memory out of 1500000
- 11482 multiletter control sequences out of 10000+200000
+ 8317 strings out of 256215
+ 107106 string characters out of 1917023
+ 214961 words of memory out of 1500000
+ 11481 multiletter control sequences out of 10000+200000
  7203 words of font info for 28 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
- 35i,6n,37p,879b,995s stack positions out of 5000i,500n,6000p,200000b,15000s
+ 35i,6n,37p,879b,993s stack positions out of 5000i,500n,6000p,200000b,15000s
 
-Output written on CS444_Writeup1.dvi (6 pages, 47776 bytes).
+Output written on CS444_Writeup1.dvi (6 pages, 38916 bytes).
