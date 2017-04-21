@@ -97,6 +97,9 @@
 
 \newpage
 
+\section{Concurrency writeup}
+The producer-consumer problem is a well studied problem.  Algorithms were simply found from a search and used the POSIX threads and lpthread build from the linux command line.  After producing and creating thread functions were created, these were used to pass items back and forth before joining.  In order to prevent simultaneous access, mutexes were used, along with random waiting period, where threads would be blocked from accessing the array of items if another thread was accessing at the time.
+
 \section{Log of Commands to Build Yocto Kernel and Load Qemu}
 \begin{lstlisting}
 1.	Open two terminal windows. In terminal #1, do steps 2-12. In terminal #2 do steps 2-3. In terminal #1 we will build our project and use gdb to control the emulator in the debug mode. In terminal #2, we will boot our kernels on the VM.
