@@ -1,0 +1,15 @@
+\contentsline {section}{\numberline {1}Concurrency writeup}{2}{section.1}
+\contentsline {section}{\numberline {2}Log of Commands to Build Yocto Kernel and Load Qemu}{2}{section.2}
+\contentsline {section}{\numberline {3}Flags in the listed Qemu command line}{2}{section.3}
+\contentsline {section}{\numberline {4}Concurrency}{3}{section.4}
+\contentsline {subsection}{\numberline {4.1}Main point of assignment}{3}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Personal approach to problem}{3}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Verification of solution}{4}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}What I learned}{4}{subsection.4.4}
+\contentsline {section}{\numberline {5}Version control log}{4}{section.5}
+\contentsline {subsection}{\numberline {5.1}Git Logs}{4}{subsection.5.1}
+\contentsline {section}{\numberline {6}Work log}{5}{section.6}
+\contentsline {subsection}{\numberline {6.1}April 18-17}{5}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}April 19-17}{5}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}April 20-17}{5}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}April 21-17}{5}{subsection.6.4}

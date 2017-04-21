@@ -48,7 +48,7 @@ void consumerthread()
       {
 		  if (!checkproductempty(i))
 		  {
-			  printf("Consumer random val from index %d is %d\n", i, product[i].print);
+			  printf("Consumer random val from loop %d is %d\n", i, product[i].print);
 			  printf("Consumer sleeping at index %d for %d\n", i, product[i].wait);
 			  t = product[i].wait;
 			  product[i].print = -1;
@@ -96,15 +96,15 @@ int main(int argc, char *argv[])
             if (checkproductempty(i)) {
                 product[i].print = (rand() % (11));//between 1-10
                 product[i].wait = (rand() % (9 + 1 -2)) + 2;//waiting for somewhere between 2-9 second 
-		printf("Producer Inserting Value %d and Wait Time %d at Index: %d\n", product[i].print, product[i].wait, i);
+		printf("Producer Inserting Value %d and Wait Time %d in loop: %d\n", product[i].print, product[i].wait, i);
                 prodwait = (rand() % (7 + 1 - 3)) + 3;//waiting for somewhere between 3-7 seconds
 		printf("Producer is now sleeping for %d seconds\n", prodwait);
             }
             pthread_mutex_unlock(&lock);
             sleep(prodwait);//You are feeling sleepy now.
+	    i++;
         } 
-        i++;
-		printf("i is: %d\n", i);
+        	printf("i is: %d\n", i);
 		if (i == atoi(argv[1]))
 		{
 			return 0;
