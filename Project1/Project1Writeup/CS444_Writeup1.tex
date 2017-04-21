@@ -97,7 +97,7 @@
 
 \newpage
 
-\section{Log of Commands to Build Yocto Kernel}
+\section{Log of Commands to Build Yocto Kernel and Load Qemu}
 \begin{lstlisting}
 1.	Open two terminal windows. In terminal #1, do steps 2-12. In terminal #2 do steps 2-3. In terminal #1 we will build our project and use gdb to control the emulator in the debug mode. In terminal #2, we will boot our kernels on the VM.
 2.	Log on to os-class : pengc@os-class.oregonstate.edu(Please use your own user name )
@@ -125,10 +125,8 @@
 24.	Try run the kernel instance we created in steps 8-12. The kernel instance we built is located in linux-yocto-3.14/arch/x86/boot/ and it is named bzImage.
 25.	Run qemu-system-i386 -gdb tcp::5601 -S -nographic -kernel linux-yocto-3.14/arch/x86/boot/bzImage  -drive file=core-image-lsb-sdk-qemux86.ext3,if=virtio -enable-kvm -net none -usb -localtime --no-reboot --append "root=/dev/vda rw console=ttyS0 debug"
 26.	Do steps 20-22 again. You should find the difference in kernel names. The name should be customized into something like ??-10-01-hw1, because uname -a produce the LOCALVERSION string.
-27.	reboot the vm and use q to quit gdb. You are done with the kernel portion of HW1.
+27.	reboot the vm and use q to quit gdb.
 \end{lstlisting}
-
-\section{Log of Commands to Load Qemu}
 
 \section{Flags in the listed Qemu command line}
 The listed Qemu command line is:
@@ -176,7 +174,8 @@ Austin reviewed knowledge of concurrency and with the synchro2 problem discussed
 
 \section{Version control log}
 \begin{versionhistory}
-\subsection{git logs}
+\subsection{Git Logs}
+8badf40 was Austin, 8 minutes ago, message: pdf test creation
 597d814 was Austin, 43 minutes ago, message: Tex edit
 
 304e7e8 was IStallcup, 4 hours ago, message: small changes to concurrency
@@ -208,8 +207,8 @@ dae7e2e was Austin, 35 hours ago, message: concurrency mostly done
 3e7be70 was Austin, 2 days ago, message: some files in
 
 599f66e was Austin, 2 days ago, message: started concurrency
-c
-6a4f0c was Austin, 2 days ago, message: Testing directories
+
+c6a4f0c was Austin, 2 days ago, message: Testing directories
 
 8e404a9 was Austin Nguyen, 3 days ago, message: first commit
 
