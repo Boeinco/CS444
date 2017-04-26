@@ -1,0 +1,20 @@
+removing virtio causes seg fault, look at error message to determine what
+	to replace virtio with
+
+Need to generate script that does I/O scheduling that runs on VM
+
+Outputting sector numbers in requested order is good first step
+
+In order to use our scheduler, pass as command line option or use 
+	/sys/block/hdc/queue/scheduler file at run time
+
+Ensure using kernel we built (run qemu_stuff.sh or equivalent)
+
+Add some contents to kconfig.iosched file in block directory to get file to 
+	compile (/sys/block)
+
+Make copy of noop-iosched.c file, call it what we do, find/replace all instances
+	of noop to sstf
+
+Maintain queue in sorted order; use insertion sort to insert in it
+	(as already sorted this is OK)
