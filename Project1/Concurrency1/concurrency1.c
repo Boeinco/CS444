@@ -18,6 +18,15 @@ struct Item
 };
 
 struct Item product[32];
+unsigned int ecx;
+
+int processorcheck()
+{
+   if (ecx & 0x40000000)
+      return 1;
+   else
+      return 0;
+}
 
 int checkproductempty(int x)
 {
