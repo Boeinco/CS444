@@ -1,1 +1,1 @@
-Placeholder file
+use ``dd of=FILE if=FILE'' to copy & test IO on qemu
