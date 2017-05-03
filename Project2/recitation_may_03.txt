@@ -1,0 +1,42 @@
+fuz will grade concurrency/HW code, not writing (other TA Andrew, maybe Winters)
+
+concurrency graded 0-100
+	rdrand stuff? Not sure what he said
+
+concurrency 3 not assigned yet
+
+HW2, see email for tips, helpful website (don't ignore), etc etc
+
+Demo HW2 (not this week)
+	1. fuz will email us the patch we submit
+	2. apply patch to kernel, compile kernel (GOOGLE APPLYING PATCH TO KERNEL)
+	3. While compiling, test concurrency 2 code
+	4. Let kernel do file read/write or disk access operations, then demonstrate
+how i/o scheduler works (read system log, output file, see how IO scheduler
+works)
+		--google how to read out system log?
+		--find way to show fuz the results of sucessful I/O scheduling (prime
+Kevin talking point tomorrow)
+
+How to show scheduler works correctly:
+	print off sector #s VM accesses
+	print these to a log file
+
+data structures used in noop scheduler are defined in other files in kernel;
+look there for answers or potential ways to approach solutions
+
+start from yocto scheduler, don't use other kernels' schedulers
+
+website emailed; Linux Cross Reference; look up noop-iosched.c
+	different than yocto scheduler, don't use that one
+	this website is "sometimes helpful"; has convenient features that make it 
+easy to explore kernel files (examine data structures, etc.)
+
+{sounds from what fuz is saying that we don't have to write much code, just use
+what the kernel already has for us to correctly tweak scheduler}
+
+printnk function = useful to print kernel stuff (potential cantidate for
+	showing fuz i/o scheduler works via printing sector numbers that 
+	the scheduler just accessed! this sounds important)
+
+look up the sector_t data type to get started

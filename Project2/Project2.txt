@@ -1,1 +1,9 @@
 use ``dd of=FILE if=FILE'' to copy & test IO on qemu
+
+TO MOVE A FILE TO VIRTUAL MACHINE
+
+run qemu_no_virtio.sh
+
+attach gdp as regular (target remote localhost:5628, continue)
+
+on os-class, run scp -P 8022 [filename] root@localhost:~
