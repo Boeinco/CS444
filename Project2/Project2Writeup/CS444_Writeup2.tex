@@ -58,8 +58,8 @@
   urlcolor = black,
   pdfauthor = {\name},
   pdfkeywords = {CS444 ``Operating Systems''},
-  pdftitle = {CS 444 Writeup 1},
-  pdfsubject = {CS 444 Writeup 1},
+  pdftitle = {CS 444 Writeup 2},
+  pdfsubject = {CS 444 Writeup 2},
   pdfpagemode = UseNone
 }
 
@@ -69,7 +69,7 @@
     \begin{center}
         \vspace*{3.5cm}
 
-        \textbf{Writeup 1}
+        \textbf{Writeup 2}
 
         \vspace{0.5cm}
 	
@@ -84,7 +84,7 @@
 
         \vspace{0.5cm}
 
-	This writeup is the writeup for Project 1 for CS444 Operating Systems 2.  The write-up includes the Linux Yocto kernal on os-class.engr.oregonstate.edu and the solution of Producer-Consumer in C.
+	This writeup is the writeup for Project 2 for CS444 Operating Systems 2.  The write-up includes the Linux Yocto kernal on os-class.engr.oregonstate.edu scheduler using sstf elevator algorithm and dining philosophers.
 
         \vfill
 
@@ -98,134 +98,31 @@
 \newpage
 
 \section{Concurrency writeup}
-The producer-consumer problem is a well studied problem.  Algorithms were simply found from a search and used the POSIX threads and lpthread build from the linux command line.  After producing and creating thread functions were created, these were used to pass items back and forth before joining.  In order to prevent simultaneous access, mutexes were used, along with random waiting period, where threads would be blocked from accessing the array of items if another thread was accessing at the time.
+The dining philosophers problem is a well studied problem.  Algorithms were simply found from a search and used the pthreads and also uses semamphores.  
 
-\section{Log of Commands to Build Yocto Kernel and Load Qemu}
-\begin{lstlisting}
-(terminal #1)
-cd /scratch/spring2017/
-mkdir whichever directory
-git clone git://git.yoctoproject.org/linux-yocto-3.14
-cd linux-yocto-3.14
-git checkout v3.14.26
-source /scratch/opt/environment-setup-i586-poky-linux
-cp /scratch/spring2017/files/config-3.14.26-yocto-qemu .config
-make menuconfig
-make -j4 all
-then run GDB
-gdb
+\section{SSTF Algorithm}
+The SSTF algorithm uses the LOOK algorithm which was studied with some research. The look documentation was found and was implemented with an adaptation to the NOOP ioscheduler that was already in the Linux qemu emulator.
 
-(terminal #2)
-source /scratch/opt/environment-setup-i586-poky-linux
-cd /scratch/spring2017/your group number
-cp /scratch/spring2017/files/core-image-lsb-sdk-qemux86.ext3 .
-/scratch/spring2017/files/core-image-lsb-sdk-qemux86.ext3 .
-qemu-system-i386 -gdb tcp::6504 -S -nographic -kernel bzImage-qemux86.bin -drive file=core-image-lsb-sdk-qemux86.ext3,if=virtio -enable-kvm -net none -usb -localtime --no-reboot --append "root=/dev/vda rw console=ttyS0 debug
-gdb
-target remote :6504
-continue
-root
-uname -a
-reboot
-qemu-system-i386 -gdb tcp::6504 -S -nographic -kernel linux-yocto-3.14/arch/x86/boot/bzImage  -drive file=core-image-lsb-sdk-qemux86.ext3,if=virtio -enable-kvm -net none -usb -localtime --no-reboot --append "root=/dev/vda rw console=ttyS0 debug
-target remote :6504
-continue
-root
-uname -a
-reboot
-\end{lstlisting}
-
-\section{Flags in the listed Qemu command line}
-The listed Qemu command line is:
-\begin{lstlisting}
-qemu-system-i386 -gdb tcp::???? -S -nographic -kernel bzImage-qemux86.bin 
-\end{lstlisting}
-\begin{lstlisting}
--drive file=core-image-lsb-sdk-qemux86.ext3,if=virtio -enable-kvm 
-\end{lstlisting}
-\begin{lstlisting}
--net none -usb -localtime --no-reboot --append 
-\end{lstlisting}
-\begin{lstlisting}
-"root=/dev/vda rw console=ttyS0 debug".
-\end{lstlisting}
-
-The following list describes each flag:
-\begin{itemize}
-\item \emph{-gdb} instructs qemu to wait for input from the subsequent flag.
-\item \emph{tcp::5628} gives qemu the device to listen on for gdb input.
-\item \emph{-S} tells qemu to not start the CPU at startup.
-\item \emph{-nographic} disables graphical output so qemu appears as a command line application only.
-\item \emph{-kernel} followed by a file specifies the kernel to be used, in this case the bzImage we created.
-\item \emph{-drive} defines a new drive; the following arguemnts specify the disk image file (file=core-image-lsb-sdk-qemux86.ext3) and the interface option (if=virtio).
-\item \emph{-enable-kvm} enables KVM virtualization, a very complicated function that assists in emulating hardware.
-\item \emph{-net} interfaces with network options; assumedly as it is followed by "none" the VM does not have networking support. 
-\item \emph{-usb} enables the USB driver.
-\item \emph{-localtime} enables the machine to start at the current local time.
-\item \emph{--no-reboot} configures the system to shutoff instead of reboot.
-\item \emph{--append} tells qemu to use the following argument ("root=dev/vdarw console=tty50 debug") as the kernel command line.
-\end{itemize}
-
-\section{Concurrency}
-The following subsections answer the four questions as outlined on the Project 1 page on Kevin McGrath's course website.
+\section{Questions}
 \subsection{Main point of assignment}
-The main points of the assignment were to remind us and refresh our usage of the pthreads in C which we did one (maybe 2?) assignments in CS344 which was probably a year removed from most of us in the class. In addition, it showed us a practical way the multiparallel processing is useful in a possible real life scenario of producer-consumer, of course in which real life is much more complicated.  Third, if some of us had not programmed in C in a while (my last couple CS classes have been in python and java), it was a good refresher for that as well.
+The main points of this assignment were to determine how the scheduler worked and how there are different methods of scheduling.The concurrency assignment was to help us remember how to use semaphores that we used only once or twice in CS344.  In addition, we learned how to use some networking tactics in order to work with the VM and how to test the i/o using io generation scripts.
 
 \subsection{Personal approach to problem}
-My approach comes from some research with the producer-consumer problem.  The pthreads documentation is pretty easy to find so functions such as create, join, mutex, etc. were all used in thsi problem.  Because the easiest way to make the buffer was a array of structs, it made more sense to use static threads in which the buffer has 2 data fields, a random val and a random waiting time.  Having a thread for producer and consumer thread made it quite easy; the producer would lock the thread using a mutex then produce and item.  After unlocking, the consumer would lock it again and consume the buffer, and then unlock again.  Once this runs x number of times, an internal counter would make the program return.  A producer could always grab the mutex and add items, depending on the order of the thread creation but only up to how full the buffer can get.
+The approach to the scheduler comes from research of the linux scheduler algorithms and information on elevator scheduling, specifically LOOK algorithm.  The pthreads documentation is pretty easy to find so functions such as create, join, mutex, etc. were all used in thsi problem.  
 
 \subsection{Verification of solution}
-The important parts that needed to be verified were when the counter applied and which thread grabbed control of the mutex.  To verify the solution, print statements were used.  The insertion from the producer at the index location should be the same as the consumer retrieving the random value from the same index position and the value should be the same also. Print statements were added that would print out the values of the producer and consumer, as well as their sleep times.  The index goes from 1-32 so the index shouldn't be a problem.  Using pthread conditionals, it is impossible to have both threads acessing the mutex at the same time and it is easy to tell which one because the print statement will state which thread it is. I experimented on the the code with arguments of 1-5 and the output showed that it was called the proper number of times.
+The important parts that needed to be verified were when the counter applied and which thread grabbed control of the mutex.  
+
 
 \subsection{What I learned}
-Austin reviewed knowledge of concurrency, and with the synchro2 problem discussed in the recitation, is starting to get into the parallel mindset. Using mutexes again helped this process to remember to not allow multiple threads to access the same data.  The assignment was a good warmup for any future problems where a good solution would be a parallel one.
+I learned about schedulers, both from the assignment and the tophat reading. Using mutexes again helped this process to remember to not allow multiple threads to access the same data.  The assignment helped remind us how semaphore works and some of the intricacies of i/o.
 
 \section{Version control log}
 \subsection{Git Logs}
-2eb5240 was Austin, 2 minutes ago, message: working on verification
-
-2d4a72b was Austin, 9 hours ago, message: 4/21 some more changes outside verification
-
-c40e630 was Austin, 9 hours ago, message: more tex edited
-8badf40 was Austin, 8 minutes ago, message: pdf test creation
-597d814 was Austin, 43 minutes ago, message: Tex edit
-
-304e7e8 was IStallcup, 4 hours ago, message: small changes to concurrency
-
-5336067 was IStallcup, 5 hours ago, message: Merge branch 'master' of https://github.com/Boeinco/CS444
-6
-fa3edf was IStallcup, 5 hours ago, message: added qemu flag explanation
-
-5ffd876 was Isaac Stallcup, 5 hours ago, message: Create .gitignore
-
-66d601f was Austin, 12 hours ago, message: Writeup work
-
-53de57c was Austin, 12 hours ago, message: fixed command arg
-c
-fb1942 was Austin, 32 hours ago, message: writeup updated
-
-401f05e was Austin, 32 hours ago, message: writeup updated
-
-8425628 was IStallcup, 33 hours ago, message: Added some more stuff
-
-cf27ae5 was IStallcup, 33 hours ago, message: added some writeup formatting
-
-6e073c6 was Austin, 34 hours ago, message: Template tex file done
-
-dae7e2e was Austin, 35 hours ago, message: concurrency mostly done
-
-4d7f1cc was Austin, 2 days ago, message: temp files
-
-3e7be70 was Austin, 2 days ago, message: some files in
-
-599f66e was Austin, 2 days ago, message: started concurrency
-
-c6a4f0c was Austin, 2 days ago, message: Testing directories
-
-8e404a9 was Austin Nguyen, 3 days ago, message: first commit
 
 
 \section{Work log}
+
 \subsection{April 18-17}
 Austin created git project and started working on concurrency.  Used latex template to set up the latex document and git commits under username Boeinco.
 \subsection{April 19-17}
