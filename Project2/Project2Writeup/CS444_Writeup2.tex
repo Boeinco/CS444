@@ -47,7 +47,7 @@
   stringstyle=\color{orange},
 }
 
-\def\name{Austin Nguyen, Isaac Stallcup}
+\def\name{Austin Nguyen, Isaac Stallcup, Alex Garcia}
 
 %pull in the necessary preamble matter for pygments output
 \input{pygments.tex}
@@ -111,11 +111,15 @@ The main points of this assignment were to determine how the scheduler worked an
 The approach to the scheduler comes from research of the linux scheduler algorithms and information on elevator scheduling, specifically LOOK algorithm.  The pthreads documentation is pretty easy to find so functions such as create, join, mutex, etc. were all used in thsi problem.  
 
 \subsection{Verification of solution}
-The important parts that needed to be verified were when the counter applied and which thread grabbed control of the mutex.  
+The important parts that needed to be verified were when the counter applied and which thread grabbed control of the mutex. \\
+
+Once the scheduler was written, a testing script to confirm the I/O scheduler's function was written. It takes in a command line argument as to how many directories to create, then populates each of these directories with the same number of copies of the full text of Shakespeare's Hamlet (contained in hamlet.txt). Each time a folder or file is created, the number of sectors occupied on the disk is measured. After all copies of Hamlet have been made, the entire created directory tree is then deleted and the sectors occupied is again measured. This data is all then output in sectors.txt. \\
+
+The makefile for this assignment performs this automatically if the VM is booted.
 
 
-\subsection{What I learned}
-I learned about schedulers, both from the assignment and the tophat reading. Using mutexes again helped this process to remember to not allow multiple threads to access the same data.  The assignment helped remind us how semaphore works and some of the intricacies of i/o.
+\subsection{What We learned}
+We learned about schedulers, both from the assignment and the tophat reading. Using mutexes again helped this process to remember to not allow multiple threads to access the same data.  The assignment helped remind us how semaphore works and some of the intricacies of i/o.
 
 \section{Version control log}
 \subsection{Git Logs}
