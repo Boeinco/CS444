@@ -1,4 +1,4 @@
-all: intro concurrency script writeup
+all: intro concurrency writeup script
 
 intro:
 	@echo -e "\n=========================="
