@@ -1,0 +1,158 @@
+\documentclass[letterpaper,10pt,titlepage]{article}
+
+\setlength{\parindent}{0pt}
+
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+
+\usepackage{alltt}
+\usepackage{float}
+\usepackage{color}
+\usepackage{url}
+\usepackage{listings}
+
+\usepackage{balance}
+\usepackage[TABBOTCAP, tight]{subfigure}
+\usepackage{enumitem}
+\usepackage{pstricks, pst-node}
+
+\usepackage{geometry}
+\geometry{textheight=8.5in, textwidth=6in}
+
+\newcommand{\cred}[1]{{\color{red}#1}}
+\newcommand{\cblue}[1]{{\color{blue}#1}}
+
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{vhistory}
+
+\hypersetup{%
+	colorlinks = true,
+	linkcolor = black
+}
+
+\lstdefinestyle{customc}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=L,
+  xleftmargin=\parindent,
+  language=C,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+}
+
+\def\name{Austin Nguyen, Isaac Stallcup, Alex Garcia}
+
+%pull in the necessary preamble matter for pygments output
+\input{pygments.tex}
+
+%% The following metadata will show up in the PDF properties
+\hypersetup{
+  colorlinks = true,
+  urlcolor = black,
+  pdfauthor = {\name},
+  pdfkeywords = {CS444 ``Operating Systems''},
+  pdftitle = {CS 444 Writeup 2},
+  pdfsubject = {CS 444 Writeup 2},
+  pdfpagemode = UseNone
+}
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \vspace*{3.5cm}
+
+        \textbf{Writeup 2}
+
+        \vspace{0.5cm}
+	
+	\vspace{0.8cm}
+
+        CS 444\\
+        Spring 2017\\
+
+        \vspace{1cm}
+
+        \textbf{Abstract}\\
+
+        \vspace{0.5cm}
+
+	This writeup is the writeup for Project 2 for CS444 Operating Systems 2.  The write-up includes the Linux Yocto kernal on os-class.engr.oregonstate.edu scheduler using sstf elevator algorithm and dining philosophers.
+
+        \vfill
+
+    \end{center}
+\end{titlepage}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Concurrency writeup}
+The dining philosophers problem is a well studied problem.  Algorithms were simply found from a search and used the pthreads and also uses semamphores.  
+
+\section{SSTF Algorithm}
+The SSTF algorithm uses the LOOK algorithm which was studied with some research. The look documentation was found and was implemented with an adaptation to the NOOP ioscheduler that was already in the Linux qemu emulator.
+
+\section{Questions}
+\subsection{Main point of assignment}
+The main points of this assignment were to determine how the scheduler worked and how there are different methods of scheduling.The concurrency assignment was to help us remember how to use semaphores that we used only once or twice in CS344.  In addition, we learned how to use some networking tactics in order to work with the VM and how to test the i/o using io generation scripts.
+
+\subsection{Personal approach to problem}
+The approach to the scheduler comes from research of the linux scheduler algorithms and information on elevator scheduling, specifically LOOK algorithm.  The pthreads documentation is pretty easy to find so functions such as create, join, mutex, etc. were all used in thsi problem.  
+
+\subsection{Verification of solution}
+The important parts that needed to be verified were when the counter applied and which thread grabbed control of the mutex. \\
+
+Once the scheduler was written, a testing script to confirm the I/O scheduler's function was written. It takes in a command line argument as to how many directories to create, then populates each of these directories with the same number of copies of the full text of Shakespeare's Hamlet (contained in hamlet.txt). Each time a folder or file is created, the number of sectors occupied on the disk is measured. After all copies of Hamlet have been made, the entire created directory tree is then deleted and the sectors occupied is again measured. This data is all then output in sectors.txt. \\
+
+The makefile for this assignment performs this automatically if the VM is booted.
+
+
+\subsection{What We learned}
+We learned about schedulers, both from the assignment and the tophat reading. Using mutexes again helped this process to remember to not allow multiple threads to access the same data.  The assignment helped remind us how semaphore works and some of the intricacies of i/o.
+
+\section{Version control log}
+\subsection{Git Logs}
+9820250 - Austin, 4 minutes ago : removed some unnecessary duplicate files
+0dcd3e9 - IStallcup, 3 hours ago : added script writeup to verificatoin section of writeup
+6bf1027 - Isaac Stallcup, 3 hours ago : created patch for sstf io scheduler
+b35f801 - Isaac Stallcup, 4 hours ago : added in some scripts to run qemu, config file just in case, did more work on Makefile
+064a394 - IStallcup, 5 hours ago : added concurrency since Alex having git problems, as well as my makefile
+3bcaee2 - Isaac Stallcup, 5 hours ago : finished io test script
+997def3 - Austin, 2 days ago : Writeup update
+a6b4871 - Austin, 2 days ago : Updated Project2 writeup
+92c2456 - Austin, 3 days ago : did sstf io sched
+5d4d354 - Isaac Stallcup, 3 days ago : skelton commit for python script to test i/o
+51dbc5e - IStallcup, 4 days ago : added recitation notes from may 03
+342e70d - Austin, 5 days ago : Updated readme
+7dc5698 - IStallcup, 5 days ago : added reminder to use dd to test i/o, and sstf-iosched first start
+95d1087 - IStallcup, 5 days ago : added some testing flies to see if they work
+65729b0 - Austin, 5 days ago : added noop sched
+af8a220 - Austin, 11 days ago : Merge branch 'master' of https://github.com/Boeinco/CS444
+bb29c79 - Austin, 11 days ago : quick change
+c4ef3e0 - IStallcup, 11 days ago : added tips file from recitation
+d56ca67 - Austin, 11 days ago : Created project 2 folder
+\section{Work log}
+
+\subsection{May 1-17}
+Austin created project 2 folder sometime.  Used latex template to set up the latex document and git commits under username Boeinco.
+\subsection{May 2-17}
+Austin and Isaac worked on scripts and the sstf scheduler.
+\subsection{May 3-17}
+Austin and Isaac worked on writeup. Alex sent concurrency to isaac to upload to git.
+\subsection{May 4-17}
+Austin did final git log update.
+
+%\bibliographystyle{plain}
+%\bibliography{CS444_Writeup2}
+\end{document}

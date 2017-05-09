@@ -1,0 +1,32 @@
+all: intro writeup script
+
+intro:
+	@echo -e "\n=========================="
+	@echo -e "    CS 444 Spring 2017"
+	@echo -e "   Assignment 2 Makefile"
+	@echo -e "==========================\n"
+
+concurrency: 
+	@echo -e "\n=========================="
+	@echo -e " Compiling Concurrency..."
+	@echo -e "==========================\n"
+	gcc ./Concurrency2/diningPhilosophers.c -pthread -o diningPhilo 
+
+script: #copy over script to VM, run iotest.sh, put data in sectors.txt
+	@echo -e "\n=========================="
+	@echo -e "      Testing I/O..."
+	@echo -e "==========================\n"
+	@echo -e "WARNING: Please ensure VM is running.\n"
+	@echo -e "Copying testing script to running VM"
+	scp -P 8022 ./scripts/iotest.sh ./scripts/hamlet.txt root@localhost:~
+	@echo -e "\nRunning testing script on VM"
+	ssh -p 8022 root@localhost ./iotest.sh 5 > ./scripts/sectors.txt
+	@echo -e "\nOutput from testing script available in /scripts/sectors.txt"
+
+writeup:
+	@echo -e "\n=========================="
+	@echo -e " Compiling TeX Writeup..."
+	@echo -e "=========================="
+	cd Project2Writeup
+	make
+	

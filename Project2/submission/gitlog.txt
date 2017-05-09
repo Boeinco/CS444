@@ -1,0 +1,43 @@
+9820250 - Austin, 4 minutes ago : removed some unnecessary duplicate files
+0dcd3e9 - IStallcup, 3 hours ago : added script writeup to verificatoin section of writeup
+6bf1027 - Isaac Stallcup, 3 hours ago : created patch for sstf io scheduler
+b35f801 - Isaac Stallcup, 4 hours ago : added in some scripts to run qemu, config file just in case, did more work on Makefile
+064a394 - IStallcup, 5 hours ago : added concurrency since Alex having git problems, as well as my makefile
+3bcaee2 - Isaac Stallcup, 5 hours ago : finished io test script
+997def3 - Austin, 2 days ago : Writeup update
+a6b4871 - Austin, 2 days ago : Updated Project2 writeup
+92c2456 - Austin, 3 days ago : did sstf io sched
+5d4d354 - Isaac Stallcup, 3 days ago : skelton commit for python script to test i/o
+51dbc5e - IStallcup, 4 days ago : added recitation notes from may 03
+342e70d - Austin, 5 days ago : Updated readme
+7dc5698 - IStallcup, 5 days ago : added reminder to use dd to test i/o, and sstf-iosched first start
+95d1087 - IStallcup, 5 days ago : added some testing flies to see if they work
+65729b0 - Austin, 5 days ago : added noop sched
+af8a220 - Austin, 11 days ago : Merge branch 'master' of https://github.com/Boeinco/CS444
+bb29c79 - Austin, 11 days ago : quick change
+c4ef3e0 - IStallcup, 11 days ago : added tips file from recitation
+d56ca67 - Austin, 11 days ago : Created project 2 folder
+73a479b - Austin, 2 weeks ago : New final
+139db3d - Austin, 2 weeks ago : Final commit unless something drastic happens
+2eb5240 - Austin, 2 weeks ago : working on verification
+2d4a72b - Austin, 2 weeks ago : 4/21 some more changes outside verification
+c40e630 - Austin, 2 weeks ago : more tex edited
+8badf40 - Austin, 2 weeks ago : pdf test creation
+597d814 - Austin, 2 weeks ago : Tex edit
+304e7e8 - IStallcup, 2 weeks ago : small changes to concurrency
+5336067 - IStallcup, 2 weeks ago : Merge branch 'master' of https://github.com/Boeinco/CS444
+6fa3edf - IStallcup, 2 weeks ago : added qemu flag explanation
+5ffd876 - Isaac Stallcup, 2 weeks ago : Create .gitignore
+66d601f - Austin, 2 weeks ago : Writeup work
+53de57c - Austin, 2 weeks ago : fixed command arg
+cfb1942 - Austin, 3 weeks ago : writeup updated
+401f05e - Austin, 3 weeks ago : writeup updated
+8425628 - IStallcup, 3 weeks ago : Added some more stuff
+cf27ae5 - IStallcup, 3 weeks ago : added some writeup formatting
+6e073c6 - Austin, 3 weeks ago : Template tex file done
+dae7e2e - Austin, 3 weeks ago : concurrency mostly done
+4d7f1cc - Austin, 3 weeks ago : temp files
+3e7be70 - Austin, 3 weeks ago : some files in
+599f66e - Austin, 3 weeks ago : started concurrency
+c6a4f0c - Austin, 3 weeks ago : Testing directories
+8e404a9 - Austin Nguyen, 3 weeks ago : first commit
