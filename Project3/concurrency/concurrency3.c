@@ -7,7 +7,6 @@
 #include "mt19937ar.c"
 
 struct linkedList list;
-int eax, ebx, ecx, edx;
 int searchers, inserters, deleters, num;
 
 pthread_mutex_t smutex;
@@ -54,6 +53,7 @@ void *searcher() {
                 printf("List is empty\n");
                 continue;
             } else {
+	       	printf("searcher is printing: ");
                 while (searchlist != NULL) {
                     printf("%d ", searchlist->val);
                     searchlist = searchlist->next;
