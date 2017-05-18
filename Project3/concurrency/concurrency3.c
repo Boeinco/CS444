@@ -53,7 +53,7 @@ void *searcher() {
                 printf("List is empty\n");
                 continue;
             } else {
-	       	printf("searcher is printing: ");
+	       	printf("searcher %d is printing: ", pthread_self());
                 while (searchlist != NULL) {
                     printf("%d ", searchlist->val);
                     searchlist = searchlist->next;
@@ -62,6 +62,10 @@ void *searcher() {
             }
             pthread_mutex_unlock(&smutex);
         }
+		else
+		{
+			printf("Searcher blocked\n");
+		}
         sleep(1);
     }
 }
@@ -76,7 +80,7 @@ void *inserter() {
                 randomnum = randnum(1, 10);
                 insertlist = (struct linkedList *)malloc(sizeof(struct linkedList));
 
-                printf("Insert val: %d\n", randomnum);
+                printf("%d is inserting val: %d\n", pthread_self(), randomnum);
                 insertlist->val = randomnum;
                 insertlist->next = NULL;
                 tail = &head;
@@ -92,6 +96,10 @@ void *inserter() {
                 pthread_mutex_unlock(&imutex);
                 sleep(1);
             }
+			else
+			{
+				printf("inserter blocked\n");
+			}
         }
     }
 }
@@ -114,7 +122,7 @@ void *deleter() {
                     while (deletelist != NULL) {
 
                         if (deletelist->val == deleteNode) {
-                            printf("Delete val: %d\n", deleteNode);
+                            printf("%d is deleting val: %d\n", pthread_self(), deleteNode);
 
                             if (deletelist == head) {
                                 head = deletelist->next;
@@ -133,10 +141,17 @@ void *deleter() {
 
                     pthread_mutex_unlock(&smutex);
                 }
-
+				else
+				{
+					printf("Deleter blocked\n");
+				}
                 pthread_mutex_unlock(&imutex);
+
             }
-            
+			 else
+		{
+			printf("Deleter blocked\n");
+		}
             sleep(1);
         }
     }
