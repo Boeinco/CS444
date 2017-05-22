@@ -1,0 +1,58 @@
+35225a9 - Isaac Stallcup, 19 hours ago : added demo script. If this isn't good enough for Fuz literally nothing will be
+c799b8c - Isaac Stallcup, 20 hours ago : finished encrypted block driver with crypto! Now working on script
+be7a0bd - Isaac Stallcup, 24 hours ago : added in skeleton block driver file
+d5dc8a4 - Isaac Stallcup, 2 days ago : added in makefile to build module
+b84f54a - Austin, 4 days ago : added id's to threads using pthread_self
+47d481c - Austin, 4 days ago : added thread blocked
+698164f - Isaac Stallcup, 4 days ago : added in script to transfer flies to VM; usage is ./transfer_file.sh [file to transfer] [location on VM]
+4f9bc5d - Austin, 5 days ago : optimized
+12dc4f7 - Austin, 5 days ago : new version uploaded
+68d74d4 - Austin, 5 days ago : test concurrency probably works
+b4050a0 - Austin, 5 days ago : Worked on concurrency
+384d1b2 - Austin, 6 days ago : Started assignment3 concurrency
+09edd54 - Austin, 6 days ago : Created project 3 folder
+908c63e - Isaac Stallcup, 2 weeks ago : final project 2 commit
+4c51d11 - Austin, 2 weeks ago : git logs added to tex
+9820250 - Austin, 2 weeks ago : removed some unnecessary duplicate files
+0dcd3e9 - IStallcup, 2 weeks ago : added script writeup to verificatoin section of writeup
+6bf1027 - Isaac Stallcup, 2 weeks ago : created patch for sstf io scheduler
+b35f801 - Isaac Stallcup, 2 weeks ago : added in some scripts to run qemu, config file just in case, did more work on Makefile
+064a394 - IStallcup, 2 weeks ago : added concurrency since Alex having git problems, as well as my makefile
+3bcaee2 - Isaac Stallcup, 2 weeks ago : finished io test script
+997def3 - Austin, 2 weeks ago : Writeup update
+a6b4871 - Austin, 2 weeks ago : Updated Project2 writeup
+92c2456 - Austin, 3 weeks ago : did sstf io sched
+5d4d354 - Isaac Stallcup, 3 weeks ago : skelton commit for python script to test i/o
+51dbc5e - IStallcup, 3 weeks ago : added recitation notes from may 03
+342e70d - Austin, 3 weeks ago : Updated readme
+7dc5698 - IStallcup, 3 weeks ago : added reminder to use dd to test i/o, and sstf-iosched first start
+95d1087 - IStallcup, 3 weeks ago : added some testing flies to see if they work
+65729b0 - Austin, 3 weeks ago : added noop sched
+af8a220 - Austin, 4 weeks ago : Merge branch 'master' of https://github.com/Boeinco/CS444
+bb29c79 - Austin, 4 weeks ago : quick change
+c4ef3e0 - IStallcup, 4 weeks ago : added tips file from recitation
+d56ca67 - Austin, 4 weeks ago : Created project 2 folder
+73a479b - Austin, 4 weeks ago : New final
+139db3d - Austin, 4 weeks ago : Final commit unless something drastic happens
+2eb5240 - Austin, 4 weeks ago : working on verification
+2d4a72b - Austin, 4 weeks ago : 4/21 some more changes outside verification
+c40e630 - Austin, 4 weeks ago : more tex edited
+8badf40 - Austin, 5 weeks ago : pdf test creation
+597d814 - Austin, 5 weeks ago : Tex edit
+304e7e8 - IStallcup, 5 weeks ago : small changes to concurrency
+5336067 - IStallcup, 5 weeks ago : Merge branch 'master' of https://github.com/Boeinco/CS444
+6fa3edf - IStallcup, 5 weeks ago : added qemu flag explanation
+5ffd876 - Isaac Stallcup, 5 weeks ago : Create .gitignore
+66d601f - Austin, 5 weeks ago : Writeup work
+53de57c - Austin, 5 weeks ago : fixed command arg
+cfb1942 - Austin, 5 weeks ago : writeup updated
+401f05e - Austin, 5 weeks ago : writeup updated
+8425628 - IStallcup, 5 weeks ago : Added some more stuff
+cf27ae5 - IStallcup, 5 weeks ago : added some writeup formatting
+6e073c6 - Austin, 5 weeks ago : Template tex file done
+dae7e2e - Austin, 5 weeks ago : concurrency mostly done
+4d7f1cc - Austin, 5 weeks ago : temp files
+3e7be70 - Austin, 5 weeks ago : some files in
+599f66e - Austin, 5 weeks ago : started concurrency
+c6a4f0c - Austin, 5 weeks ago : Testing directories
+8e404a9 - Austin Nguyen, 5 weeks ago : first commit

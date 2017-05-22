@@ -1,0 +1,6 @@
+\begin {longtable}{ll>{\hsize =.5\hsize }X>{\hsize =1.5\hsize }X}
+\textbf {\vhversionname }
+ & \textbf {\vhdatename }
+ & \textbf {\vhauthorname }
+ & \textbf {\vhchangename }\\[1ex]
+\end {longtable}

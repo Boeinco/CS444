@@ -1,0 +1,1 @@
+cmd_/scratch/spring2017/12-08/CS444/Project3/encryption/ebd.ko := ld -r -m elf_i386 -T /scratch/spring2017/12-08/linux-yocto-3.14/scripts/module-common.lds --build-id  -o /scratch/spring2017/12-08/CS444/Project3/encryption/ebd.ko /scratch/spring2017/12-08/CS444/Project3/encryption/ebd.o /scratch/spring2017/12-08/CS444/Project3/encryption/ebd.mod.o
