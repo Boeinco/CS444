@@ -23,12 +23,13 @@ static int hardsect_size = 512;
 module_param(hardsect_size, int, 0);
 static int nsectors = 1024; 
 module_param(nsectors, int, 0);
+static char *key = "ceacele55feebledeadbeeffe110ff00";
+module_param(key, charp, 0400);
 
 #define KERNEL_SECTOR_SIZE 512
 #define KEY_SIZE 32
 
 /* ceaceless feeble dead beef fell off 0 0 */
-static char *key = "ceacele55feebledeadbeeffe110ff00";
 
 static struct request_queue *Queue;
 
@@ -51,7 +52,7 @@ static void ebd_transfer(struct ebd_device *dev, sector_t sector, unsigned long 
     unsigned long offset = sector*hardsect_size;
     unsigned long nbytes = nsect*hardsect_size;
 	unsigned long blocksize = crypto_cipher_blocksize(dev->blk_cipher);
-	int i;
+	unsigned long i;
     
     if ((offset + nbytes) > dev->size) { 
 		printk (KERN_NOTICE "ebd: Beyond-end write (%ld %ld)\n", offset, nbytes);
@@ -136,6 +137,18 @@ static int __init ebd_init(void)
 	if (Device.data == NULL)
 		return -ENOMEM; 					/* error out if no memory detected */
 
+	/* crypto shutff!!! */
+	Device.blk_cipher = crypto_alloc_cipher("aes", 0, CRYPTO_ALG_ASYNC);
+	if (IS_ERR(Device.blk_cipher)) {
+		printk("ebd: Failed to load crypto\n");
+		goto out;
+	}
+	crypt_key = crypto_cipher_setkey(Device.blk_cipher, key, 32);
+	if (crypt_key != 0) {
+		printk("Failed to set key\n");
+		goto out;
+	}
+	
 	/* get request queue */
 	Queue = blk_init_queue(ebd_request, &Device.lock);
 	if (Queue == NULL)
@@ -164,21 +177,7 @@ static int __init ebd_init(void)
 	set_capacity(Device.gd, nsectors*(hardsect_size/KERNEL_SECTOR_SIZE));
 	Device.gd->queue = Queue; /* set up earlier, see section on "get request queue" */
 	/* once we're done setting up, add disk */
-
-
-	/* crypto shutff!!! */
-
-	Device.blk_cipher = crypto_alloc_cipher("aes", 0, 0x00000080);
-	if (IS_ERR(Device.blk_cipher)) {
-		printk("ebd: Failed to load crypto\n");
-		goto out;
-	}
-	crypt_key = crypto_cipher_setkey(Device.blk_cipher, key, 32);
-	if (crypt_key != 0) {
-		printk("Failed to set key\n");
-		goto out;
-	}
-
+	
 	add_disk(Device.gd);
 
 	return 0;
@@ -188,7 +187,7 @@ static int __init ebd_init(void)
 		unregister_blkdev(major_num, "ebd");
 	out: 						/* go here if error in allocating memory */
 		vfree(Device.data);
-		return -ENOMEM;
+	return -ENOMEM;
 } /* end init device */
 
 static void __exit ebd_exit(void) {
