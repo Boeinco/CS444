@@ -1,0 +1,14 @@
+remind fuz of score on hw2 when demoing hw3
+
+hw4 system call, see next recitation
+
+hw3 demo use 1 of 3 methods to show code is correct
+	gdb
+		-change key live?
+	printk
+	other tools (grep!!) <-- what we have
+	test with different keys
+
+20min to demo
+
+@ demo, start everything from scratch (except cloning fresh repository)
