@@ -17,19 +17,21 @@
 #include <linux/crypto.h>
 
 MODULE_LICENSE("Dual BSD/GPL");
+/* ceaceless feeble dead beef fell off 0 0 */
+static char *mykey = "ceace1e55feeb1edeadbeeffe110ff00";
+module_param(mykey, charp, 0000); 
 static int major_num = 0;	
 module_param(major_num, int, 0);
 static int hardsect_size = 512;
 module_param(hardsect_size, int, 0);
 static int nsectors = 1024; 
 module_param(nsectors, int, 0);
-static char *key = "ceacele55feebledeadbeeffe110ff00";
+static char *key = "ceace1e55feeb1edeadbeeffe110ff00";
 module_param(key, charp, 0400);
 
 #define KERNEL_SECTOR_SIZE 512
 #define KEY_SIZE 32
 
-/* ceaceless feeble dead beef fell off 0 0 */
 
 static struct request_queue *Queue;
 
@@ -43,6 +45,8 @@ static struct ebd_device {
 	/* crypto stuff goes here */
 	struct crypto_cipher *blk_cipher;
 	u8 key[KEY_SIZE];
+	struct crypto_cipher *custom_cipher;
+	u8 mykey[KEY_SIZE];
 
 } Device;
 
@@ -61,13 +65,14 @@ static void ebd_transfer(struct ebd_device *dev, sector_t sector, unsigned long 
     if (write) {
 		char* destination = dev->data + offset;
  		for (i = 0; i < nbytes; i+= blocksize)
- 			crypto_cipher_encrypt_one(dev->blk_cipher, &destination[i], &buffer[i]);
+ 			crypto_cipher_encrypt_one(dev->custom_cipher, &destination[i], &buffer[i]);
 /*		memcpy(dev->data + offset, buffer, nbytes);*/
 	}
     else {
 		char* source = dev->data + offset;
  		for (i = 0; i < nbytes; i+= blocksize)
  			crypto_cipher_decrypt_one(dev->blk_cipher, &buffer[i], &source[i]);
+/* 			crypto_cipher_decrypt_one(dev->blk_cipher, &buffer[i], &source[i]); */ /*verion without custom key*/
 /*		memcpy(buffer, dev->data + offset, nbytes);*/
 	}
 }
@@ -130,6 +135,7 @@ static struct block_device_operations ebd_ops = {
 static int __init ebd_init(void)
 {
 	unsigned int crypt_key;
+	unsigned int cust_crypt_key;
 	/* device bookkeeping */
 	Device.size = nsectors*hardsect_size;	/* size = # sectors in drive * size of sector */
 	spin_lock_init(&Device.lock);			/* initialize the spinlock */
@@ -143,10 +149,23 @@ static int __init ebd_init(void)
 		printk("ebd: Failed to load crypto\n");
 		goto out;
 	}
+	Device.custom_cipher = crypto_alloc_cipher("aes", 0, CRYPTO_ALG_ASYNC);
+	if (IS_ERR(Device.custom_cipher)) {
+		printk("ebd: Failed to load custom crypto\n");
+		goto out;
+	}
 	crypt_key = crypto_cipher_setkey(Device.blk_cipher, key, 32);
 	if (crypt_key != 0) {
 		printk("Failed to set key\n");
 		goto out;
+	}
+	cust_crypt_key = crypto_cipher_setkey(Device.custom_cipher, mykey, 32);
+	if (cust_crypt_key != 0) {
+		printk("Failed to set custom key\n");
+		goto out;
+	}
+	else {
+		printk("Custom key set, reference is %s!", mykey);
 	}
 	
 	/* get request queue */
